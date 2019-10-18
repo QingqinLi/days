@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="content-Type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+    <!-- element_ui 使用 -->
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .el-menu {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .header img {
+            position: absolute;
+            left: 80px;
+            top: -4px;
+            width: 118px;
+            height: 70px;
+            z-index: 999;
+        }
+
+        .el-carousel__item h3 {
+            color: #475669;
+            font-size: 14px;
+            opacity: 0.75;
+            line-height: 150px;
+            margin: 0;
+        }
+
+        .el-carousel__item:nth-child(2n) {
+            background-color: #99a9bf;
+        }
+
+        .el-carousel__item:nth-child(2n+1) {
+            background-color: #d3dce6;
+        }
+        .homing{
+            margin-top:200px;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+
+<template id="header">
+    <div class="header">
+        <img src="https://www.luffycity.com/static/img/head-logo.a7cedf3.svg"/>
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+            <el-menu-item index="1">首页</el-menu-item>
+            <el-menu-item index="2">免费课程</el-menu-item>
+            <el-menu-item index="3">轻课</el-menu-item>
+            <el-menu-item index="4">学位课程</el-menu-item>
+            <el-menu-item index="5">智能题库</el-menu-item>
+            <el-menu-item index="6">公开课</el-menu-item>
+            <el-menu-item index="7">内部教材</el-menu-item>
+            <el-menu-item index="8">老男孩教育</el-menu-item>
+        </el-menu>
+    </div>
+</template>
+
+<template id="block">
+    <el-carousel indicator-position="outside" height="480px">
+        <el-carousel-item v-for="item in homePageImgArray" :key="item">
+            <img :src="item.sources" class="banner_img"/>
+        </el-carousel-item>
+    </el-carousel>
+</template>
+
+<template id="homing">
+  <div class="homing">
+    <span class="demonstration">默认 Hover 指示器触发</span>
+    <el-carousel height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
+        <h3 class="small">{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+  <div class="block">
+    <span class="demonstration">Click 指示器触发</span>
+    <el-carousel trigger="click" height="150px">
+      <el-carousel-item v-for="item in 4" :key="item">
+        <h3 class="small">{{ item }}</h3>
+      </el-carousel-item>
+    </el-carousel>
+  </div>
+</template>
+
+<template id="footer">
+    <div class="footer">
+
+        <el-menu class="el-menu-demo" mode="horizontal" background-color="black">
+            <el-menu-item index="1">关于我们</el-menu-item>
+            <el-menu-item index="2">联系我们</el-menu-item>
+            <el-menu-item index="3">商业合作</el-menu-item>
+            <el-menu-item index="4">帮助中心</el-menu-item>
+            <el-menu-item index="5">意见反馈</el-menu-item>
+            <el-menu-item index="6">新手指南</el-menu-item>
+        </el-menu>
+
+    </div>
+</template>
+
+
+<script>
+    let Header = {
+        template: "#header",
+        data() {
+            return {
+                activeIndex: 0,
+            }
+        }
+    };
+
+    let Home = {
+        template: "#homing",
+    };
+
+    let Footer = {
+        template: "#footer",
+    };
+
+    let App = {
+        template: `
+                <div>
+                  <app-header></app-header>
+                  <app-home></app-home>
+                  <app-footer></app-footer>
+                </div>
+            `,
+        components: {
+            'app-header': Header,
+            'app-footer': Footer,
+            'app-home': Home,
+        }
+    };
+
+    new Vue({
+        el: "#app",
+        template: `<App></App>`,
+        components: {
+            App,
+        }
+    })
+</script>
+
+</body>
+</html>

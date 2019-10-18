@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="aihao in hobby">{{ aihao }}</li>
+    </ul>
+    <ul>
+        <li v-for="student in students">姓名：{{ student.name }}-年龄:{{ student.age }}-爱好:{{ student.hobby }}</li>
+    </ul>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data:{
+            hobby: [1, 2, 3, "中文"],
+            students: [
+                {
+                    name: "studnt1",
+                    age: 22,
+                    hobby: "hh",
+                },
+                {
+                    name: "studnt2",
+                    age: 20,
+                    hobby: "hha",
+                },
+                {
+                    name: "studnt2",
+                    age: 24,
+                    hobby: "hhc",
+                }
+            ]
+        }
+    })
+</script>
+</body>
+
+</html>

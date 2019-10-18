@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    https://www.cnblogs.com/fly_dragon/p/8669057.html
+    //变量提升， 变量提升是浏览器的功能， var undefined
+    console.log(username);
+    var username = "liqing";
+    console.log(username);
+    console.log(age);
+    let age = 18;
+    console.log(age);
+*/
+    // var定义的变量：只有全局作用域和函数作用域，不能限制访问范围
+    // let定义的变量：有全局作用域和函数作用域，块级作用域{}, let申明的变量，只在let命令所在的代码块内有效果，而且有暂时性死区的约束
+    /*
+    if(true){
+        let username='lq';
+        let name = 'qq';
+        var age = 12;
+        console.log("test", name)
+    }
+    console.log(username, age, name);
+    */
+    // let定义的变量不能重复定义
+    /*
+    var username = 'qq';
+    var username = 'lq';
+
+    console.log(username);
+    let age = 12;
+    let age = 11;
+
+    console.log(age)
+    */
+
+    const PI = 3.14;
+    // PI = 1;
+    console.log(PI)
+</script>
+
+
+</body>
+
+</html>

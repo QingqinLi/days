@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        自定应以的组件相当于一个标签， 第一种方式
+        <global-component></global-component>
+    </div>
+    <script>
+        //组件组册, 继承了VUE（与实例化Vue一致，没有el）
+        Vue.component(
+            //组件名称
+            //object
+            //data 必须是函数, 形式固定
+            "global-component", {
+                //直接包显示的标签，多个标签用div包裹
+                template: `<div><h1>{{ wanrong }}</h1></div>`,
+                data(){
+                    return {
+                        wanrong: "hello word",
+
+                    }
+                }
+            }
+        );
+        new Vue({
+            el:"#app"
+        });
+
+        //第二种， 不在html中写，写在Vue的template中
+        new Vue({
+            el: "#app",
+            //这个元素为根元素，不是app的div
+            template:`<global-component></global-component>`
+        })
+
+
+    </script>
+</body>
+
+</html>

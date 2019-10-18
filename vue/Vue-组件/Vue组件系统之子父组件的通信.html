@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        let Header = {
+            template:`
+                <div>
+                    <button @click='changeSize'>改变字体大小</button>
+                </div>
+            `,
+            methods:{
+                changeSize: function () {
+                    this.$emit("listenSon", 0.1)
+                }
+            }
+
+        };
+
+        let App = {
+            template:`
+            <div>
+                <h1 :style="{ fontSize: postFontSize + 'em' }">文字显示</h1>
+                <my-header v-on:listenSon="fatherClick"></my-header>
+            </div>
+            `,
+            components:{
+                "my-header": Header,
+
+            },
+            data(){
+                return {
+                    postFontSize:1,
+                }
+            },
+            methods: {
+                fatherClick:function (value) {
+                    this.postFontSize += value
+                }
+            }
+        };
+
+        new Vue({
+            el: '#app',
+            template: `
+                <div>
+                    <App></App>
+                </div>
+            `,
+            components:{
+                App,
+            }
+        })
+    </script>
+
+</body>
+
+</html>

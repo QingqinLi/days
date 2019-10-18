@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+    <style>
+        body{
+            margin:0
+        }
+        .box{
+            width:100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            float: left;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <global-component>没有插槽不展示这里面的内容</global-component>
+</div>
+<script>
+    Vue.component("global-component", {
+        template:`
+            <div class="box">
+            <slot></slot>
+            </div>
+        `,
+    });
+
+    new Vue({
+        el: "#app",
+    })
+</script>
+</body>
+
+</html>

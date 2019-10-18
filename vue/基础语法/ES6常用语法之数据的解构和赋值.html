@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+    let ary = [1, 2, 3];
+    let [a, b, e] = ary;
+
+    console.log(a, b, e);
+
+    let obj = {
+        username: 'llqq',
+        age: 23,
+    };
+    //变量 新的名字
+    let {username:user, age: age} = obj;
+    console.log(user, age);
+
+    //变量交换
+    let c = 1;
+    let d = 2;
+    [c, d] = [d, c];
+    console.log(c, d)
+</script>
+</body>
+
+</html>

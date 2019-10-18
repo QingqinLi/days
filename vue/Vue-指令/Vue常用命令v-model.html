@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="text" v-model="name"/>
+
+    <input type="checkbox" value="男" v-model="genders"/>
+    <input type="checkbox" value="女" v-model="genders"/>
+
+    <select v-model="girlfriends">
+        <option>康抻</option>
+        <option>鞠莹莹</option>
+        <option>嘉琪</option>
+    </select>
+    {{ name }}
+    {{ genders }}
+    {{ girlfriends }}
+</div>
+
+</div>
+
+
+<script>
+    // 数据模板引擎
+    // v-开头的指令是帮助我们渲染数据用的
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            name: "juyingying",
+            genders: [],
+            girlfriends: []
+        },
+    })
+</script>
+</body>
+
+</html>

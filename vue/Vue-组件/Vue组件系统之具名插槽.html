@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+    <style>
+        body{
+            margin:0
+        }
+        .box{
+            width:100px;
+            height: 100px;
+            background-color: cornflowerblue;
+            float: left;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <global-component>没有插槽不展示这里面的内容
+        <div slot="home">首页 更具组件中的位置确定位置</div>
+        <div slot="lightcourses">轻课</div>
+        <div slot="degreecourses">学位课程</div>
+    </global-component>
+</div>
+<script>
+    Vue.component("global-component", {
+        template:`
+            <div class="box">
+            <slot name="lightcourses"></slot>
+            <slot name="degreecourses"></slot>
+            <slot name="home"></slot>
+            <slot></slot>
+            </div>
+        `,
+    });
+
+    new Vue({
+        el: "#app",
+    })
+</script>
+</body>
+
+</html>

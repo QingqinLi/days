@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script>
+    /* ES5中实例化对象的方式
+    function Person() {
+        this.username='lq';
+        this.age = 20;
+    }
+    定义函数
+    Person.prototype.showInfo = function () {
+        console.log(this.username);
+    };
+    let guyahui = new Person();
+    */
+    /*es
+    6
+    class Person{
+        constructor(username, age){
+            this.username = username;
+            this.age = age;
+        }
+        定义方法
+        showInfo(){
+            console.log(this.username, this.age)
+        }
+    }
+    let guyahui = new Person("gu", 12);
+    guyahui.showInfo()
+    规则：
+        class关键字定义一个类
+            必须要有constructor方法（构造方法）， 如果没有，constructor(){}
+            必须使用new来实例化
+
+         类的继承
+            必须在子类的constructor方法里面写super方法
+    */
+
+    {#继承#}
+    class Wangjianwei{
+        constructor(username, age, account=10000){
+            this.username = username;
+            this.age = age;
+            this.account = account;
+
+        }
+        showInfo(){
+            console.log(this.username, this.age, this.account)
+        }
+    }
+
+    class Peiqi extends Wangjianwei{
+        constructor(username, age){
+            super();
+            this.username = username;
+            this.age = age;
+        }
+    }
+    let peiqi = new Peiqi("peiqi", 98);
+    peiqi.showInfo();
+</script>
+</body>
+
+</html>

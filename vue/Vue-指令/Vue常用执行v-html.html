@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+<div id="app" v-html="greeting"></div>
+<script>
+    //数据模版引擎
+    new Vue({
+        el: "#app",
+        data:{
+            greeting: "<h1>Hello Vue</h1>"
+        }
+    })
+</script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*默认值参数*/
+    function foo(x, y=10) {
+        number = y;
+        return number;
+    }
+    ret = foo(1, 2);
+
+    //箭头函数 参数 箭头 返回值
+    // 如果o个或者多个参数
+    () => {}
+    // 多个参数
+    let bar = (x, y) => {return x+y};
+    // 一个参数
+    v => v;
+    /*
+    * 箭头函数的规则
+    * 之前函数的this，是谁调用就是指谁， 跟随调用者改变
+    * 箭头函数的this，执行定义时的作用域
+    *
+    * */
+    function foo1() {
+        console.log(this);
+    }
+    let bar1 = () => console.log(this);
+
+    let obj =  {
+        foo: foo1,
+        bar: bar1,
+    };
+    foo1();
+    obj.foo();
+    obj.bar();
+
+
+    /*单体函数
+
+    * */
+
+
+
+</script>
+</body>
+
+</html>

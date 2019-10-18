@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+    <style>
+        .active{
+            width: 500px;
+            height: 500px;
+            background-color: lawngreen;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <a v-bind:href="jingdong">go jd</a>
+    <div :class="isActive"></div>
+
+</div>
+
+<script>
+    let vm = new Vue({
+        el:"#app",
+        data: {
+            jingdong: "https://www.jd.com",
+            isActive: 'active',
+        }
+    })
+</script>
+</body>
+
+</html>

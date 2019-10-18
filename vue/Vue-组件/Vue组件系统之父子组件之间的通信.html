@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script>
+        //创建一个局部组件
+        let Header = {
+            template: `
+                <div>
+                    <h2>{{ greeting }}</h2>
+                    <h3>{{ fData }}</h3>
+                </div>
+
+            `,
+            props: ['fData'],
+            data(){
+                return {
+                    greeting: 'Hello, Vue'
+                }
+            },
+        };
+        // 在入口组件中注册你写的局部组件
+        let App = {
+            template: `
+                <div>
+                    <page-header v-bind:fData="fatherData"></page-header>
+                </div>
+            `,
+            components:{
+                'page-header': Header,
+            },
+            methods:{
+                myCLick: function () {
+                    console.log(1);
+                }
+            },
+            data(){
+                return {
+                    fatherData:"你好"
+                }
+            }
+
+
+        };
+
+        new Vue({
+            el: '#app',
+            //在Vue实例中注册你的所有组件的入口
+            template:`<App></App>`,
+            components:{
+                App,
+            }
+
+        })
+    </script>
+</body>
+
+</html>

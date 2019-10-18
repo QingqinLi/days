@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <my-yongjie></my-yongjie>
+    <my-keqiang></my-keqiang>
+</div>
+<script>
+    let mixs = {
+        methods: {
+            show: function (name) {
+                console.log(name + '来了');
+            },
+            hide: function (name) {
+                console.log(name + '去了');
+            }
+        }
+    };
+
+    let myYongJie = {
+        template: `
+                <div>
+                    <button @click="show('yongjie')">show yongjie</button>
+                    <button @click="hide('yongjie')">hide yongjie</button>
+                </div>
+            `,
+        mixins: [mixs],
+    };
+
+    let myKeQiang = {
+        template: `
+                <div>
+                    <button @mouseenter="show('keqiang')">show keqiang</button>
+                    <button @mouseleave="hide('keqiang')">hide keqiang</button>
+                </div>
+            `,
+        mixins: [mixs],
+    };
+
+    new Vue({
+        el: "#app",
+        components: {
+            "my-yongjie": myYongJie,
+            "my-keqiang": myKeQiang,
+        }
+    })
+</script>
+</body>
+
+</html>
