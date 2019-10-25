@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script>
+        let laside = {
+            template:`
+                <div>
+                    <h1>{{ mes }}</h1>
+                </div>
+            `,
+            data(){
+                return{
+                    mes: "hello Vue!"
+                }
+            },
+            methods:{
+                changeData: function () {
+                    this.mes = "PIzza is here!"
+                }
+            },
+            //组件的创建和销毁对性能的影响
+            beforeDestory(){
+                console.group("beforeDestory");
+                console.log("el:", this.$el);
+                console.log("data", this.$data);
+                console.log("name", this.mes);
+            },
+        };
+
+        let App = {
+            template:`
+                <div>
+                    <Laside v-if="isShow"></Laside>
+                    <button @click="showHide">创建消除组件</button>
+                </div>
+            `,
+            components:{
+                "Laside": laside,
+            },
+            methods:{
+                showHide:function () {
+                    this.isShow = !this.isShow;
+                }
+            },
+            data(){
+                return{
+                    isShow:true,
+                }
+            }
+        };
+
+        new Vue({
+            el:"#app",
+            template: `<App/>`,
+            components:{
+                App,
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{ name }}
+        <button @click="myClick">点击修改数据</button>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                name: "maweihua",
+            },
+            methods:{
+                myClick: function(){
+                    this.name = 'Pizza';
+                }
+            },
+            beforeCreate(){
+                console.group("beforeCreate");
+                console.log("el: ", this.$el);
+                console.log("data: ", this.$data);
+                console.log("name: ", this.name);
+                console.log('myClick', this.myClick);
+                console.log("innerHTML: ", document.getElementById("app").innerHTML);
+            },
+            created() {
+                console.group("created");
+                console.log("el: ", this.$el);
+                console.log("data: ", this.$data);
+                console.log("name: ", this.name);
+                console.log('myClick', this.myClick);
+                console.log("innerHTML: ", document.getElementById("app").innerHTML);
+            },
+            beforeMount(){
+                console.group("beforeMount");
+                console.log("el: ", this.$el);
+                console.log("data: ", this.$data);
+                console.log("name: ", this.name);
+                console.log('myClick', this.myClick);
+                console.log("innerHTML: ", document.getElementById("app").innerHTML);
+            },
+            mounted(){
+                console.group("mounted");
+                console.log("el: ", this.$el);
+                console.log("data: ", this.$data);
+                console.log("name: ", this.name);
+                console.log('myClick', this.myClick);
+                console.log("innerHTML: ", document.getElementById("app").innerHTML);
+            }
+        })
+    </script>
+</body>
+
+</html>

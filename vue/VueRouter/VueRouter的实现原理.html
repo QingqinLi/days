@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+
+</head>
+<body>
+<div id="app">
+
+</div>
+
+<script>
+    let oDiv = document.getElementById("app");
+
+    window.onhashchange = function () {
+        switch (location.hash){
+            case '#login':
+                oDiv.innerHTML = '<h1>这是登录页面</h1>';
+                break;
+            case '#/register':
+                oDiv.innerHTML = '<h1>这是注册页面</h1>';
+                break;
+            default:
+                oDiv.innerHTML = '<h1>这是首页</h1>';
+                break;
+        }
+    }
+</script>
+
+</body>
+
+</html>

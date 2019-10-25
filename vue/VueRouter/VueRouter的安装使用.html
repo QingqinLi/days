@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <script src="../../static/vue.min.js"></script>
+    <script src="../../static/vue-router.js"></script>
+</head>
+<body>
+<div id="app">
+
+</div>
+
+<script>
+    // 在Vue根实例中使用，VueRouter
+    Vue.use(VueRouter);
+
+    let Home = {
+        template: `
+            <div>
+                <h1>这是主页页面</h1>
+            </div>
+        `,
+    };
+    let Login = {
+        template: `
+            <div>
+                <h1>这是登录页面</h1>
+            </div>
+        `,
+    };
+
+    let Register = {
+        template: `
+            <div>
+                <h1>这是注册页面</h1>
+             </div>
+        `
+    };
+
+    let App = {
+        template: `
+            <div>
+                <router-link to="/">首页</router-link>
+                <router-link to="/login">登录</router-link>
+                <router-link to="/register">注册</router-link>
+
+                <router-view></router-view>
+            </div>
+        `,
+    };
+
+    //2、第二步实例化一个router对象，本质上是将路径和页面内容绑定来对应关系
+    let router = new VueRouter({
+        routes:[
+            {
+                path:'/',
+                component:Home,
+            },
+            {
+                path:'/login',
+                component: Login,
+            },
+            {
+                path: '/register',
+                component: Register,
+
+            }
+        ]
+    });
+
+    new Vue({
+        el: "#app",
+        template: `<App/>`,
+        router:router,
+        components:{
+            App,
+        }
+    });
+</script>
+
+</body>
+
+</html>
